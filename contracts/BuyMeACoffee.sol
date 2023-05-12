@@ -30,7 +30,7 @@ contract BuyMeACoffee {
     }
     
       function buyCoffee(string memory sender, string memory message) public payable {
-        
+                require(msg.value > 0,"msg.value not received");
         memos.push(Memo(
                 msg.sender,
                 block.timestamp,
@@ -39,9 +39,14 @@ contract BuyMeACoffee {
             ));
             emit NewMemo(msg.sender,block.timestamp,sender,message);
           } 
-    // function withdraw() public {
-        
 
-        // owner.transfer(address(this).balance);
-    // }
+          function withdrawTips() public {
+            owner.transfer(address(this).balance);
+         }
+
+          function getMemos() public view returns( Memo[] memory) {
+            return memos;
+          }
+
+         
 }
