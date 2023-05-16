@@ -4,6 +4,9 @@ pragma solidity ^0.8.9;
 // Uncomment this line to use console.log
 // import "hardhat/console.sol";
 
+
+// DEPLOYED TO THIS ADDRESS : "0x5FbDB2315678afecb367f032d93F642f64180aa3"
+
 contract BuyMeACoffee {
 
     address payable public  owner;
@@ -43,7 +46,6 @@ contract BuyMeACoffee {
           function withdrawTips() public {
             owner.transfer(address(this).balance);
          }
-
           function getMemos() public view returns( Memo[] memory) {
             return memos;
           }
